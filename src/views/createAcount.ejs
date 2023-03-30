@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <%- include ("./partials/head.ejs")%>
+    <link rel="stylesheet" href="../../css/createStyles.css">
+</head>
+
+<body>
+    
+    <%- include("./partials/header")  %>
+    <div class="containerAll">
+    <h1 class="titleContainer">
+        <a class="title" href="/">Login Ruteo</a>
+    </h1>
+    <form class="formulario" id="form-create-user" action="/createAcount" method="POST" enctype="multipart/form-data" >
+        
+        <h2>Crear Cuenta</h2>
+
+        <!--itero los errores que vienen de la ruta si es q existen errores-->
+        
+        <!--<% if (locals.errors) { %>
+         
+            <% for(let oneError in errors){ %> 
+                
+                <p class="text-danger"><%= errors[oneError].msg%></p>
+
+            <% } %> 
+        <% } %>
+        -->
+
+
+        <div>
+            <label for="nombreUsuario">
+                
+                Nombre de Usuario:
+                
+            </label>
+            <input 
+            class="nombreUsuario " 
+            type="text" 
+            name="nombreUsuario"
+            value="<%= locals.oldData && oldData.nombreUsuario? oldData.nombreUsuario :null%>">
+            
+            <% if (locals.errors && errors.nombreUsuario ) { %>
+            
+                <p class="text-danger error-back-nombre-usuario"><%= errors.nombreUsuario.msg  %> </p>
+
+            <% } %> 
+            
+            <p class="text-danger mensaje-usuario-error" id="nombre-usuario"></p>
+            
+        </div>
+        <div>
+            <label for="contrasena:">
+                Contraseña:
+                
+            </label>
+            
+            <div class="container-password-ojo">
+                <input
+                class="contrasena"
+                type="password"
+                name="contrasena"
+                >
+                <i class="fa-solid fa-eye ojo"></i>
+            </div>
+            
+            <% if (locals.errors && errors.contrasena ) { %>
+                
+                <p class="text-danger error-back-contrasena"><%= errors.contrasena.msg%> </p>
+
+            <% } %> 
+            <p class="text-danger" id="contrasena"></p>
+            
+        </div>
+        <div>
+            <label for="nombre">
+                Nombre:
+                
+            </label>
+            <input 
+            class="nombre"
+            type="text" 
+            name="nombre"
+            value="<%= locals.oldData ? oldData.nombre :null%>">
+            <% if (locals.errors && errors.nombre ) { %>
+            
+                <p class="text-danger error-back-nombre"><%= errors.nombre.msg%> </p>
+
+            <% } %> 
+            <p class="text-danger" id="nombre"></p>
+        </div>
+        <div>
+            <label for="apellido:">
+                Apellido:
+               
+            </label>
+            <input
+            class="apellido"
+            type="text"
+            name="apellido"
+            value="<%= locals.oldData ? oldData.apellido :null%>">
+            <% if (locals.errors && errors.apellido ) { %>
+            
+                <p class="text-danger error-back-apellido"><%= errors.apellido.msg%></p>
+
+            <% } %> 
+            <p class="text-danger" id="apellido"></p>
+        </div>
+         <% let genero = ["Masculino", "Femenino", "Otros"] %>
+        <div>
+            <label for="genero">Género</label>
+            
+            <select name="genero" class="genero">
+                <option value="">Elegí un Género</option>
+
+                    <%  for(j=0; j < genero.length;j++){%>
+                        <option
+                            value="<%= j%>">
+                            <%= locals.oldData && (genero[j] === oldData.genero) ? "selected" :null%>
+                            <%= genero[j] %>
+                        </option>
+                    <% } %>   
+                
+                
+                
+                
+            </select>
+            <% if (locals.errors && errors.genero ) { %>
+            
+                    <p class="text-danger error-back-genero"><%= errors.genero.msg%> </p>
+    
+            <% } %> 
+            <p class="text-danger" id="genero"></p>
+        </div>
+        <div>  
+            <label for="telefono">
+                Teléfono:
+                
+            </label>
+            <input 
+            class="telefono"
+            type="tel" 
+            name="telefono"
+            value="<%= locals.oldData ? oldData.telefono :null%>">
+            <% if (locals.errors && errors.telefono ) { %>
+            
+                <p class="text-danger error-back-telefono"><%= errors.telefono.msg%> </p>
+
+            <% } %> 
+            <p class="text-danger " id="telefono"></p>
+        </div>
+        <div>
+            <label for="direccion">
+                Dirección:
+            </label>
+            <input 
+            class="direccion"
+            type="text" 
+            name="direccion"
+            value="<%= locals.oldData ? oldData.direccion :null%>">
+            <% if (locals.errors && errors.direccion ) { %>
+            
+                <p class="text-danger error-back-direccion"><%= errors.direccion.msg%> </p>
+
+            <% } %> 
+            <p class="text-danger" id="direccion"></p>
+        </div>
+        <div>
+            <label for="email">
+                Email:
+            </label>
+            <input 
+            class="email"
+            type="email"
+            name="email"
+            value="<%= locals.oldData ? oldData.email :null%>">
+            <% if (locals.errors && errors.email ) { %>
+            
+                <p class="text-danger error-back-email" ><%= errors.email.msg%> </p>
+
+            <% } %> 
+            <p class="text-danger" id="email"></p>
+        </div>
+        <div>
+            <label for="avatar">
+                Avatar:
+            </label>
+            <input 
+            
+            class="file avatar" 
+            type="file" 
+            name="avatar"
+            value="<%= locals.oldData ? oldData.avatar :null%>">
+            <% if (locals.errors && errors.avatar ) { %>
+            
+                <p class="text-danger error-back-avatar"><%= errors.avatar.msg%> </p>
+
+            <% } %> 
+            <p class="text-danger" id="avatar"></p>
+        </div>
+        <div>
+            <label for="pais">País de Nacimiento</label>
+              <% 
+                    let countries = ["1", "2","3 ", "4"]; 
+                %> 
+            <select name="pais" class="pais">
+                <option value="">Elegí un país</option>
+              
+               <% let pais=["Argentina","Brazil", "Chile", "Chinas"] %>
+                <%  for(i=0; i < pais.length;i++){%>
+                    <option
+                        value="<%= i%>">
+                        <%= locals.oldData && (pais[i] === oldData.pais) ? "selected" :null%>
+                        <%= pais[i]%>
+                    </option>
+                <% } %>  
+                
+                
+            </select>
+            <% if (locals.errors && errors.pais ) { %>
+            
+                    <p class="text-danger error-back-pais"><%= errors.pais.msg%> </p>
+    
+            <% } %> 
+            <p class="text-danger" id="pais"></p>
+        </div>
+        <a class="loginButton" href="./login">Iniciar Sesión</a>
+        <button type="submit" class="button-submit">Crear cuenta</button>
+    </form>
+    </div>
+    <script src="../../srcipts/createAcountValidations.js"></script>
+    <script src="../../srcipts/showPassword.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Sitio login:
+Login con SQL es un proyecto el cual fue hecho con CRUD, en el cual 
+uno puede crear un usuario y loguearse dentro de una base de datos de 
+MySQL e iniciar sesión y dejar la misma guardada con cookies,  cabe aclarar
+que este proyecto fue hecho con la funcionalidad de practicar backend de base
+de datos rutas parametrizadas y CRUD por dicho motivo el mismo no esta optimizado
+para telefono, ni hecho en movile first.

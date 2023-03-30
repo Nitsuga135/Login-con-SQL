@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head")  %> 
+    <link rel="stylesheet" href="./../../css/loginStyles.css">
+</head>
+<body >
+        
+    <%- include("./partials/header")  %>
+    <div class="containerAll">
+        <h1 class="titleContainer">
+               <a  class="title" href="/">Login</a> 
+        </h1>
+        
+        <form class="formulario" action="/login" method="POST">
+            <div class="inputContainer">
+                <label for="email">Ingrese Nombre de Usuario</label>
+                <input name="email" type="email" 
+                 value="<%= locals.email && oldData.email? oldData.email :null%>"
+                >
+                <!--Errores-->
+                <% if (locals.errors && errors.email ) { %>
+            
+                    <p class="text-danger"><%= errors.email.msg  %> </p>
+    
+                <% } %> 
+                 
+            </div>
+
+            <div class="inputContainer">
+                <label for="contrasena">Ingrese su Contraseña</label>
+                <div class="container-password-ojo">
+                    <input type="password" name="contrasena" class="contrasena">
+                    <i class="fa-solid fa-eye ojo"></i>
+                </div>
+                <!--Errores-->
+                <% if (locals.errors && errors.contrasena ) { %>
+            
+                    <p class="text-danger"><%= errors.contrasena.msg%> </p>
+    
+                <% } %> 
+            </div>
+            <div class="inputContainer recordar-container">
+                
+                <input class="check-recordar" id="recordar" type="checkbox" name="recordar">
+                <label for="recordar" class="recordar" >Recordar mi Usuario</label>
+                
+            </div>
+            <button type="submit">Iniciar Sesión</button>
+            <button> <a href="./createAcount">Crear una Cuenta</a></button>
+
+        </form>
+
+    </div>
+    <script src="../../srcipts/showPassword.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<header>
+    <nav>
+        <li><a href="/">Home</a></li>
+        <% if (locals.isLogged) { %>
+            
+            
+                <li><a href="/profile/<%= locals.userLogged.id  %>">Profile</a></li>
+            </nav>
+            <nav>
+                <img class="imgPerfil" src="/images/avatars/<%=locals.userLogged.avatar%>" alt="">
+                <li><a  href="/login/logOut">Log Out</a></li>
+            </nav>
+
+        <% } else { %>
+         
+            <li><a href="/login">LogIn</a></li>
+            <li><a href="/createAcount">Create Acount</a></li>
+            </nav>
+        <% } %>
+</header>

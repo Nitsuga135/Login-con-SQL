@@ -1,0 +1,110 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.containerAll{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+.formulario{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 95%;
+    width: 40vh;
+    background-color: rgb(90, 231, 144);
+    border-radius: 1%;
+    margin: 20px 0;
+    
+}
+.loginButton{
+    height: 28px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    color: #000;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+label{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+    
+}
+input{
+    height: 22px;
+    width: 200px;
+    border: 0 ;
+    border-bottom: 1px solid black;
+    margin-bottom: 5px;
+    background-color: rgb(90, 231, 144);
+    outline: none;
+    text-align: center;
+    font-size: 18px;
+}
+.title{
+
+    border-bottom: 2px solid rgb(90, 231, 144);
+    text-decoration: none;
+    color: #000;
+    font-size: 80px;
+}
+.file{
+    width: 90%;
+    
+    
+    
+}
+
+div{
+    display: flex;
+    justify-content:center ;
+    flex-direction: column;
+    align-items: center;
+}h2{
+    font-size: 40px;
+    border-bottom: 1px solid black;
+    color: blueviolet;
+    margin-bottom: 20px;
+}
+button{
+    background-color: blueviolet;
+    border: 1px solid rgb(0,0,0);
+    border-radius: 5px;
+    height: 40px;
+    width: 80%;
+    margin-top: 10px;
+    color: #fff;
+}
+select{
+    width: 200px;
+    height: 30px;
+}
+.text-danger{
+    color: rgb(252, 0, 0);
+    font-size: 18px;
+    text-align: center;
+}
+.is-invalid{
+    color:rgb(252, 0, 0)
+}
+.container-password-ojo{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    font-size: 18px;
+   
+}
+.contrasena{
+    width: 182px;
+}
